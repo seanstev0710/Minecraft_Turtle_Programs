@@ -2,12 +2,15 @@
 
 This is a collection of several Minecraft ComputerCraft turtle programs.
 
+------------------------------------------------------------------------------
 
-
-## Dig.lua
+## [Dig.lua](dig.lua)
 dig.lua will make the turtle mine a square of length "x" read from user input.
-
 It will mine from y-axis 16 to 11, under the assumption that the user input for the current y-value is correct.
+
+- Turtle sends location to a remote computer if GPS is setup
+- Returns to start location if fuel is low or if inventory is full
+- Goes back to mining after resupplying
 
 ### bugs
 
@@ -17,8 +20,9 @@ It will mine from y-axis 16 to 11, under the assumption that the user input for 
 
 ### Features to add
 
-1. Display turtles coordinates to a remote computer
+1. Have multiple turtles work together by being launched from a main computer
 
-2. Have multiple turtles work together by being launched from a main computer
+2. Turtles will go around any specified ores written in a config file
 
-3. Turtles will go around any specified ores written in a .txt file (.txt)
+
+------------------------------------------------------------------------------
