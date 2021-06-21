@@ -5,8 +5,8 @@ io.write("Enter current y-coord: ")
 local yCoordinate = io.read()
 io.write("\nEnter diameter of dig site.\n Up to 64: ")
 diameter = tonumber(io.read())
-upperLimit = 16 --upper Mining Limit. Turtle starts mining a square from after reaching this y-coord until the lower limit
-
+upperLimit = 15 --upper Mining Limit. Turtle starts mining a square from after reaching this y-coord until the lower limit
+lowerLimit = 9
 start = vector.new(0,0,0)
 start.y = tonumber(yCoordinate)
 current = vector.new(start.x, start.y, start.z)
@@ -260,12 +260,12 @@ if turtle.getFuelLevel() < 100 then
     print("please refuel")
 end
 
---main function, excavates in a diameter from y = 16 to y = 11
+--main function, excavates in a diameter from upperLimit to lowerLimit
 while current.y > upperLimit do --go to y = upperLimit then start mining
     MoveDown()
 end
 
-while current.y > 11 do --mine for the given diameter until y = 11
+while current.y > lowerLimit do --mine for the given diameter until lowerLimit
     while current.z < diameter do
         while xDir ~= 1 do
             TurnLeft()
@@ -293,7 +293,7 @@ while current.y > 11 do --mine for the given diameter until y = 11
     
     MoveDown()
     MoveDown()
-    while current.z > 0 and current.y > 11 do
+    while current.z > 0 and current.y > lowerLimit do
         while xDir ~= 1 do
             TurnRight()
         end
@@ -317,7 +317,7 @@ while current.y > 11 do --mine for the given diameter until y = 11
             MineForward()
         end
     end
-    if current.y > 11 then
+    if current.y > lowerLimit then
         MoveDown()
         MoveDown()
     end
